@@ -17,6 +17,8 @@ import DeletarColaborador from './pages/colaboradores/DeletarColaborados'
 import ListaSetor from './components/setores/ListaSetor';
 import FormSetor from './pages/setores/FormSetor'
 import DeletarSetor from './pages/setores/DeletarSetor'
+
+
 function App() {
 
   return (
