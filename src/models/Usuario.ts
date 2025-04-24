@@ -1,7 +1,7 @@
 import Colaborador from "./Colaborador";
 
 export default interface Usuario {
-    id: number;
+    id?: number | null;
     nome: string;
     usuario: string;
     foto: string;
