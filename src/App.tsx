@@ -25,27 +25,27 @@ function App() {
     <>
       <AuthProvider>
       <ToastContainer/>
-        <BrowserRouter>
-          <Navbar />
-          <div className="min-h-[80vh]">
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/cadastro" element={<Cadastro />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/setores" element={<ListaSetor />} />
-              <Route path="/cadastrarsetor" element={<FormSetor/>} />
-              <Route path="/editarsetor/:id" element={<FormSetor/>} />
-              <Route path="/deletarsetor/:id" element={<DeletarSetor />} />
-              <Route path="/postagens" element={<ListaPostagens />} />
-              <Route path="/cadastrarcolaborador" element={<FormColaborador />} />
-              <Route path="/editarcolaborador:id" element={<FormColaborador />} />
-              <Route path="/deletarcolaborador:id" element={<DeletarColaborador />} />
-              <Route path="/perfil" element={<Perfil />} />
-            </Routes>
-          </div>
-          <Footer />
-        </BrowserRouter>
+          <BrowserRouter>
+            <Navbar />
+            <div className="min-h-[80vh]">
+              <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/cadastro" element={<Cadastro />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/setores" element={<ListaSetor />} />
+                <Route path="/cadastrarsetor" element={<FormSetor/>} />
+                <Route path="/editarsetor/:id" element={<FormSetor/>} />
+                <Route path="/deletarsetor/:id" element={<DeletarSetor />} />
+                <Route path="/postagens" element={<ListaPostagens />} />
+                <Route path="/cadastrarcolaborador" element={<FormColaborador />} />
+                <Route path="/editarcolaborador:id" element={<FormColaborador />} />
+                <Route path="/deletarcolaborador:id" element={<DeletarColaborador />} />
+                <Route path="/perfil" element={<Perfil />} />
+              </Routes>
+            </div>
+            <Footer />
+          </BrowserRouter>
         </AuthProvider>
     </>
   )
