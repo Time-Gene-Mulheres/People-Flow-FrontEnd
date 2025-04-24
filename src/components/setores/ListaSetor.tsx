@@ -1,10 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { DNA } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../contexts/AuthContext";
 
-import { buscar } from "../../../services/Service";
 import CardSetor from "./CardSetor";
+import Setor from "../../models/Setor";
 
 function ListaSetor() {
 
