@@ -53,7 +53,7 @@ function FormSetor() {
         navigate("/setor")
     }
 
-    async function gerarNovoTema(e: ChangeEvent<HTMLFormElement>) {
+    async function gerarNovoSetor(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         setIsLoading(true)
 
@@ -97,7 +97,7 @@ function FormSetor() {
                 {id === undefined ? 'Cadastrar Setor' : 'Editar Setor'}
             </h1>
 
-            <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoTema}>
+            <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoSetor}>
                 <div className="flex flex-col gap-2">
                     <label htmlFor="descricao">Descrição do Setor</label>
                     <input
