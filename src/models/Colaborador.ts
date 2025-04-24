@@ -1,9 +1,12 @@
+import Setor from "./Setor";
+import Usuario from "./Usuario";
 
 export default interface Colaborador {
     id?: number | null;
     nome: string;
     salario: number;
-    data_de_nascimento: string;
+    dataDeNascimento: string;
     cargo: string;
-    setor: Setor;
+    setor?: Setor | null;
+    usuario?: Usuario | null;
 }
