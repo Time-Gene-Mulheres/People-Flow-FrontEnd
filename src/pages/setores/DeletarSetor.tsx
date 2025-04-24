@@ -84,7 +84,7 @@ import { RotatingLines } from "react-loader-spinner"
                     className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
                     Setor
                 </header>
-                <p className='p-8 text-3xl bg-slate-200 h-full'>{tema.descricao}</p>
+                <p className='p-8 text-3xl bg-slate-200 h-full'>{setor.descricao}</p>
                 <div className="flex">
                     <button 
                         className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2'
