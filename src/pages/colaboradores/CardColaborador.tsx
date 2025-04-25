@@ -128,4 +128,3 @@ function CardColaboradores({ colaboradores }: CardColaboradoresProps) {
 }
 
 export default CardColaboradores;
-git 
