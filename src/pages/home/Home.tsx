@@ -122,22 +122,22 @@ function Home() {
                     <h1 className='text-3xl font-bold'>Dashboard</h1>
                 </div>
                 <div className='flex flex-col py-10 gap-20'>
-                    <div className='flex flex-row justify-between'>
-                        <div className='border rounded-lg p-4 w-75'>
-                            <h2>Total de Funcionários</h2>
-                            <p>{totalFuncionarios}</p>
+                    <div className='justify-between gap-5 grid grid-cols-4 text-lg'>
+                        <div className='border rounded-lg p-5 flex flex-col items-center justify-center gap-2'>
+                            <h2 className='font-medium text-gray-500'>Total de Funcionários</h2>
+                            <p className='text-4xl font-semibold'>{totalFuncionarios}</p>
                         </div>
-                        <div className='border rounded-lg p-4 w-75'>
-                            <h2>Total de Setores</h2>
-                            <p>{totalSetores}</p>
+                        <div className='border rounded-lg p-5 flex flex-col items-center justify-center gap-2'>
+                            <h2 className='font-medium text-gray-500'>Total de Setores</h2>
+                            <p className='text-4xl font-semibold'>{totalSetores}</p>
                         </div>
-                        <div className='border rounded-lg p-4 w-75'>
-                            <h2>Folha Salarial</h2>
-                            <p>{folhaSalarial.toLocaleString('pt-BR', {style: 'currency',currency: 'BRL'})}</p>
+                        <div className='border rounded-lg p-5 flex flex-col items-center justify-center gap-2'>
+                            <h2 className='font-medium text-gray-500'>Folha Salarial</h2>
+                            <p className='text-4xl font-semibold'>{folhaSalarial.toLocaleString('pt-BR', {style: 'currency',currency: 'BRL'})}</p>
                         </div>
-                        <div className='border rounded-lg p-4 w-75'>
-                            <h2>Média Salarial</h2>
-                            <p>{mediaSalarial.toLocaleString('pt-BR', {style: 'currency',currency: 'BRL'})}</p>
+                        <div className='border rounded-lg p-5 flex flex-col items-center justify-center gap-2'>
+                            <h2 className='font-medium text-gray-500'>Média Salarial</h2>
+                            <p className='text-4xl font-semibold'>{mediaSalarial.toLocaleString('pt-BR', {style: 'currency',currency: 'BRL'})}</p>
                         </div>
                     </div>
 
