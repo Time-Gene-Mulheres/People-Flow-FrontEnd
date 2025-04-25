@@ -84,22 +84,22 @@ function DeletarColaborador() {
 
             <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
                 <header 
-                    className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
+                    className='py-2 px-6 bg-[#392359] text-white font-bold text-2xl'>
                     Colaborador
                 </header>
-                <div className="p-4">
+                <div className="p-4 bg-[#e6dbf6]" >
                     <p className='text-xl h-full'>{colaborador.nome}</p>
                     <p>{colaborador.cargo}</p>
                 </div>
                 <div className="flex">
                     <button 
-                        className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2'
+                        className='text-slate-100 bg-[#5D2C73] hover:bg-[#392359] w-full py-2'
                         onClick={retornar}>
                         Não
                     </button>
                     <button 
-                        className='w-full text-slate-100 bg-indigo-400 
-                        hover:bg-indigo-600 flex items-center justify-center'
+                        className='w-full text-slate-100 bg-red-400 hover:bg-red-600
+                    flex items-center justify-center'
                         onClick={deletarColaborador}>
                         
                         {isLoading ?

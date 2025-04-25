@@ -82,19 +82,18 @@ function DeletarSetor() {
                 Você tem certeza de que deseja apagar o setor a seguir?</p>
             <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
                 <header 
-                    className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
+                    className='py-2 px-6  bg-[#392359] text-white font-bold text-2xl'>
                     Setor
                 </header>
-                <p className='p-8 text-3xl bg-slate-200 h-full'>{setor.nome}</p>
+                <p className='p-8 text-3xl bg-[#e6dbf6] h-full'>{setor.nome}</p>
                 <div className="flex">
                     <button 
-                        className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2'
+                        className='text-slate-100 bg-[#5D2C73] hover:bg-[#392359] w-full py-2'
                         onClick={retornar}>
                         Não
                     </button>
                     <button 
-                        className='w-full text-slate-100 bg-indigo-400 
-                                   hover:bg-indigo-600 flex items-center justify-center'
+                        className='w-full text-slate-100 bg-red-400 hover:bg-red-600 flex items-center justify-center'
                                    onClick={deletarSetor}>
                         {isLoading ?
                             <RotatingLines
