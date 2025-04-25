@@ -20,7 +20,7 @@ function FormSetor() {
 
     async function buscarPorId(id: string) {
         try {
-            await buscar(`/setor/${id}`, setSetor, {
+            await buscar(`/setores/${id}`, setSetor, {
                 headers: { Authorization: token }
             })
         } catch (error: any) {
@@ -60,7 +60,7 @@ function FormSetor() {
 
         if (id !== undefined) {
             try {
-                await atualizar(`/setor`, setor, setSetor, {
+                await atualizar(`/setores`, setor, setSetor, {
                     headers: { 'Authorization': token }
                 })
                 alert('O Setor foi atualizado com sucesso!')
@@ -74,7 +74,7 @@ function FormSetor() {
             }
         } else {
             try {
-                await cadastrar(`/setor`, setor, setSetor, {
+                await cadastrar(`/setores`, setor, setSetor, {
                     headers: { 'Authorization': token }
                 })
                 alert('Setor cadastrado com sucesso!')
@@ -104,7 +104,7 @@ function FormSetor() {
                     <input
                         type="text"
                         placeholder="Insira como o setor se chamará..."
-                        name='setorNome'
+                        name='nome'
                         className="border-2 border-slate-700 rounded p-2"
                         value={setor.nome}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import CardSetor from "./CardSetor";
 import Setor from "../../models/Setor";
@@ -18,7 +18,7 @@ function ListaSetor() {
 
     async function buscarSetor() {
         try {
-            await buscar('/setor', setSetores, {
+            await buscar('/setores', setSetores, {
                 headers: { Authorization: token }
             })
         } catch (error: any) {
@@ -53,6 +53,10 @@ function ListaSetor() {
         )}
             <div className="flex justify-center w-full my-4">
                 <div className="container flex flex-col">
+                    
+                    <div>
+                        <Link to="/cadastrarsetor">Cadastrar Setor</Link>
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                        {setores.map((setor) => (
                             <CardSetor key={setor.id} setor={setor} />
