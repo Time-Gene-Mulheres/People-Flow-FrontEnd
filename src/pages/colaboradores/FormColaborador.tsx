@@ -210,8 +210,7 @@ function FormColaborador() {
         </div>
 
         <button
-          className="rounded text-slate-100 bg-indigo-400 
-                               hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center"
+          className="rounded text-slate-100 bg-[#5D2C73] hover:bg-[#392359] w-1/2 py-2 mx-auto flex justify-center"
           type="submit"
         >
           {isLoading ? (
