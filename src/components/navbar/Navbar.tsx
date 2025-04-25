@@ -28,11 +28,11 @@ function Navbar() {
         <Link to='/home' className="text-2xl font-bold">People Flow</Link>
 
             <div className='flex gap-4'>
+            <Link to="/perfil" className="text-white hover:underline">
+            Perfil
+            </Link>
             <Link to="/setores" className="text-white hover:underline">
             Setor
-            </Link>
-            <Link to="/usuario" className="text-white hover:underline">
-            Usuário
             </Link>
             <Link to="/colaboradores" className="text-white hover:underline">
             Colaborador
