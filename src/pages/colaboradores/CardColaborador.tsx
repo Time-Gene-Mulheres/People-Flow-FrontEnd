@@ -1,22 +1,35 @@
 import { Link } from 'react-router-dom'
 import Colaborador from '../../models/Colaborador'
+import { User } from 'phosphor-react'
+import img from "/user.svg"
 
     interface CardColaboradorProps {
         colaborador: Colaborador
     }
 
 function CardColaborador({ colaborador }: CardColaboradorProps) {
+
+
+
     return (
         <div className='border-slate-900 border 
             flex flex-col rounded overflow-hidden justify-between'>
                 
             <div>
                 <div className="flex w-full bg-indigo-400 py-2 px-4 items-center gap-4">
-                    <img
-                        src={'https://uploads.diariodopoder.com.br/2024/08/ca434650-mprj-conta-com-robo-de-registro-de-candidaturas-para-identificar-irregularidades-ilustracao-mprj-960x640.jpg'}
-                        className='h-12 rounded-full'
-                        
-                        alt={colaborador.usuario?.nome} />
+                    {/* <div>
+                    {colaborador.usuario?.foto === '' ? 
+                        <User size={32} /> :
+                        <img
+                            src={colaborador.usuario.foto}
+                            className='h-12 rounded-full'
+                            alt={colaborador.usuario?.nome} 
+                        />
+                    }
+                    </div> */}
+
+                    <img src={colaborador.usuario?.foto} onError={(e) => { e.currentTarget.src = "/user.svg" }} className='rounded-full w-12' alt="" />
+
                     <h3 className='text-lg font-bold text-center uppercase'>
                         {colaborador.usuario?.nome}
                     </h3>
@@ -25,10 +38,9 @@ function CardColaborador({ colaborador }: CardColaboradorProps) {
                     <h4 className='text-lg font-semibold uppercase'>{colaborador.nome}</h4>
                     <p>{colaborador.cargo}</p>
                     <p>Setor: {colaborador.setor?.nome}</p>
-                    <p>Salario: {colaborador.salario}</p>
+                    <p>Salario: {colaborador.salario.toLocaleString('pt-BR', {style: 'currency',currency: 'BRL'})}</p>
                     <p>Data de Nascimento: {new Intl.DateTimeFormat(undefined, {
-                        dateStyle: 'full',
-                        timeStyle: 'medium',
+                        dateStyle: 'long'
                     }).format(new Date(colaborador.dataDeNascimento))}</p>
                     
                 </div>
@@ -47,6 +59,6 @@ function CardColaborador({ colaborador }: CardColaboradorProps) {
             </div>
         </div>
     )
-}
 
+}
 export default CardColaborador
