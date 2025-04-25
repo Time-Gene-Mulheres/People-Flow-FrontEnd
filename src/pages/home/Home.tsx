@@ -116,23 +116,78 @@ function Home() {
     .slice(0, 5);
 
     return (
-        <div className="w-full flex flex-col justify-center">
-            <div className="container">
+        <div className="flex justify-center w-full my-4">
+            <div className="container flex flex-col">
                 <div>
-                    <h1>Dashboard</h1>
+                    <h1 className='text-3xl font-bold'>Dashboard</h1>
                 </div>
-                <div>
-                    <div>
-                        <div>
+                <div className='flex flex-col py-10 gap-20'>
+                    <div className='flex flex-row justify-between'>
+                        <div className='border rounded-lg p-4 w-75'>
                             <h2>Total de Funcionários</h2>
                             <p>{totalFuncionarios}</p>
                         </div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <div className='border rounded-lg p-4 w-75'>
+                            <h2>Total de Setores</h2>
+                            <p>{totalSetores}</p>
+                        </div>
+                        <div className='border rounded-lg p-4 w-75'>
+                            <h2>Folha Salarial</h2>
+                            <p>{folhaSalarial.toLocaleString('pt-BR', {style: 'currency',currency: 'BRL'})}</p>
+                        </div>
+                        <div className='border rounded-lg p-4 w-75'>
+                            <h2>Média Salarial</h2>
+                            <p>{mediaSalarial.toLocaleString('pt-BR', {style: 'currency',currency: 'BRL'})}</p>
+                        </div>
                     </div>
-                    <div></div>
-                    <div></div>
+
+                    <div>
+                        <h2>Próximos Aniversários</h2>
+                        {proximosAniversarios.length > 0 ? (
+                            <table className="customTable">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Data</th>
+                                        <th>Setor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {proximosAniversarios.map((colaborador) => (
+                                        <tr key={colaborador.id}>
+                                            <td>{colaborador.nome}</td>
+                                            <td>{formatarData(colaborador.dataDeNascimento)}</td>
+                                            <td>{colaborador.setor.nome}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        ) : (
+                            <p>Não há aniversários nos próximos 30 dias...</p>
+                        )}
+                    </div>
+                    <div className='flex flex-col justify-between py-10'>
+                        <h2>Colaboradores por Setor</h2>
+                        <table className="customTable">
+                            <thead>
+                                <tr>
+                                    <th>Setor</th>
+                                    <th>Quantidade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {setores.map((setor) => {
+                                    const qtdFuncionarios = colaboradores.filter(colaborador => colaborador.setor.id === setor.id).length;
+                                    return (
+                                        <tr key={setor.id}>
+                                            <td>{setor.nome}</td>
+                                            <td>{qtdFuncionarios} funcionários</td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

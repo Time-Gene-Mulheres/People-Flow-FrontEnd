@@ -7,11 +7,12 @@ interface CardSetoresProps{
 
 function CardSetor ({ setor }: CardSetoresProps) {
     return (
-        <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-            <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-2xl'>
+        <div className='border flex flex-col rounded-2xl overflow-hidden justify-between gap-4 bg-slate-200'>
+            <header className='px-6 py-3 bg-indigo-800 text-white font-bold text-2xl'>
                 Setor
             </header>
-            <p className='p-8 text-3xl bg-slate-200 h-full'>{setor.nome}</p>
+            <p className='px-6 text-3xl bg-slate-200 h-full'>{setor.nome}</p>
+            <p className='px-6 text-xl bg-slate-200 h-full'>{setor.descricao}</p>
             
             <div className="flex">
                 <Link to={`/editarsetor/${setor.id}`} 
