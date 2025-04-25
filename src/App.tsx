@@ -16,6 +16,7 @@ import DeletarSetor from './pages/setores/DeletarSetor'
 import ListaSetor from './pages/setores/ListaSetor';
 import ListaColaboradores from './pages/colaboradores/ListaColaborador';
 import Perfil from './pages/usuario/Perfi';
+import ReajusteColaborador from './pages/colaboradores/ReajusteColaborador';
 
 
 function App() {
@@ -36,11 +37,12 @@ function App() {
                 <Route path="/cadastrarsetor" element={<FormSetor/>} />
                 <Route path="/editarsetor/:id" element={<FormSetor/>} />
                 <Route path="/deletarsetor/:id" element={<DeletarSetor />} />
-                <Route path="/colaboradores" element={<ListaColaboradores />} />
+                <Route path="/colaboradores" element={<ListaColaboradores />} />                
                 <Route path="/cadastrarcolaborador" element={<FormColaborador />} />
                 <Route path="/editarcolaborador/:id" element={<FormColaborador />} />
                 <Route path="/deletarcolaborador/:id" element={<DeletarColaborador />} />
                 <Route path="/perfil" element={<Perfil />} />
+                <Route path="/colaboradores/reajuste/:id" element={<ReajusteColaborador />} />
               </Routes>
             </div>
             <Footer />
