@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import CardSetor from "./CardSetor";
 import Setor from "../../models/Setor";
+import { AuthContext } from "../../contexts/AuthContext";
+import { buscar } from "../../services/Service";
+import { DNA } from "react-loader-spinner";
 
 function ListaSetor() {
 
@@ -33,7 +36,7 @@ function ListaSetor() {
     }, [token])
 
     useEffect(() => {
-        buscarSetores()    
+        buscarSetor()    
     }, [setores.length])
     
     return (
