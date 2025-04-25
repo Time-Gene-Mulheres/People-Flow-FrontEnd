@@ -11,7 +11,7 @@ function Navbar() {
     function logout() {
 
         handleLogout()
-        alert('O Usuário foi desconectado com sucesso!')
+        ToastAlerta('O Usuário foi desconectado com sucesso!', 'info')
         navigate('/')
     }
     
@@ -48,3 +48,7 @@ function Navbar() {
 }
 
 export default Navbar
+
+function ToastAlerta(arg0: string, arg1: string) {
+    throw new Error("Function not implemented.");
+}
