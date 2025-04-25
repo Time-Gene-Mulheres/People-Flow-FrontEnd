@@ -38,8 +38,8 @@ function App() {
                 <Route path="/deletarsetor/:id" element={<DeletarSetor />} />
                 <Route path="/colaboradores" element={<ListaColaboradores />} />
                 <Route path="/cadastrarcolaborador" element={<FormColaborador />} />
-                <Route path="/editarcolaborador:id" element={<FormColaborador />} />
-                <Route path="/deletarcolaborador:id" element={<DeletarColaborador />} />
+                <Route path="/editarcolaborador/:id" element={<FormColaborador />} />
+                <Route path="/deletarcolaborador/:id" element={<DeletarColaborador />} />
                 <Route path="/perfil" element={<Perfil />} />
               </Routes>
             </div>

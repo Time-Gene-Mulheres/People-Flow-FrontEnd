@@ -22,7 +22,7 @@ function DeletarSetor() {
 
     async function buscarPorId(id: string) {
         try {
-            await buscar(`/setor/${id}`, setSetor, {
+            await buscar(`/setores/${id}`, setSetor, {
                 headers: {
                     'Authorization': token
                 }
@@ -51,7 +51,7 @@ function DeletarSetor() {
         setIsLoading(true)
 
         try {
-            await deletar(`/setor/${id}`, {
+            await deletar(`/setores/${id}`, {
                 headers: {
                     'Authorization': token
                 }

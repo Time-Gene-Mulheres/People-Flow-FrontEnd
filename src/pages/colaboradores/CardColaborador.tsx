@@ -34,12 +34,12 @@ function CardColaborador({ colaborador }: CardColaboradorProps) {
                 </div>
             </div>
             <div className="flex">
-            <Link to={`/editarpostagem/${colaborador.id}`}
+            <Link to={`/editarcolaborador/${colaborador.id}`}
                 className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-800 
                 flex items-center justify-center py-2'>
                 <button>Editar</button>
             </Link>
-            <Link to={`/deletarpostagem/${colaborador.id}`} 
+            <Link to={`/deletarcolaborador/${colaborador.id}`} 
                 className='text-white bg-red-400 
                 hover:bg-red-700 w-full flex items-center justify-center'>
                 <button>Deletar</button>

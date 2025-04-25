@@ -25,7 +25,7 @@ function FormColaborador() {
 
   async function buscarPorId(id: string) {
     try {
-      await buscar(`/colaborador/${id}`, setColaborador, {
+      await buscar(`/colaboradores/${id}`, setColaborador, {
         headers: { Authorization: token },
       });
     } catch (error: any) {
@@ -101,7 +101,7 @@ function FormColaborador() {
 
     if (id !== undefined) {
       try {
-        await atualizar(`/colaborador`, colaboradorComUsuario, setColaborador, {
+        await atualizar(`/colaboradores`, colaboradorComUsuario, setColaborador, {
           headers: { Authorization: token },
         });
         ToastAlerta(
@@ -117,7 +117,7 @@ function FormColaborador() {
       }
     } else {
       try {
-        await cadastrar(`/colaborador`, colaboradorComUsuario, setColaborador, {
+        await cadastrar(`/colaboradores`, colaboradorComUsuario, setColaborador, {
           headers: { Authorization: token },
         });
         ToastAlerta("O colaborador foi cadastrado com sucesso!", "sucesso");
@@ -147,11 +147,11 @@ function FormColaborador() {
         onSubmit={gerarNovoColaborador}
       >
         <div className="flex flex-col gap-2">
-          <label htmlFor="nomeColaborador">Qual o Nome do Colaborador</label>
+          <label htmlFor="nome">Qual o Nome do Colaborador</label>
           <input
             type="text"
             placeholder="Insira aqui o nome do colaborador..."
-            name="nomeColaborador"
+            name="nome"
             className="border-2 border-slate-700 rounded p-2"
             value={colaborador.nome}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}

@@ -18,7 +18,7 @@ function ListaSetor() {
 
     async function buscarSetor() {
         try {
-            await buscar('/setor', setSetores, {
+            await buscar('/setores', setSetores, {
                 headers: { Authorization: token }
             })
         } catch (error: any) {

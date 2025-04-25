@@ -16,9 +16,9 @@ function ListaColaboradores() {
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
 
-    async function buscarPostagens() {
+    async function buscarColaboradores() {
         try {
-            await buscar('/postagens', setColaboradores, {
+            await buscar('/colaboradores', setColaboradores, {
                 headers: {
                     Authorization: token,
                 },
@@ -39,7 +39,7 @@ function ListaColaboradores() {
     }, [token])
 
     useEffect(() => {
-        buscarPostagens()
+        buscarColaboradores()
     }, [colaboradores.length])
 
     return (
