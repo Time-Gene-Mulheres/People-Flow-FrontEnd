@@ -47,7 +47,7 @@ function Login() {
                             id="usuario"
                             name="usuario"
                             placeholder="Usuario"
-                            className="border-2 border-slate-700 rounded p-2"
+                            className="border-2 border-[#392359] rounded p-2"
                             value={usuarioLogin.usuario}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
@@ -67,7 +67,7 @@ function Login() {
                     <button
                         type='submit'
                         className="rounded bg-[#392359] flex justify-center
-                                hover:bg-indigo-900 text-white w-1/2 py-2">
+                                hover:bg-[#8D5ABF] text-white w-1/2 py-2">
                                     
                         {isLoading ? <RotatingLines
                             strokeColor="white"
@@ -80,12 +80,16 @@ function Login() {
                         }
                     </button>
 
-                    <hr className="border-slate-800 w-full" />
+                    <hr className="border-[#150425] w-full" />
 
                     <p>
                         Ainda não tem uma conta?{' '}
-                        <Link to="/cadastro" className="text-indigo-800 hover:underline">
-                            Cadastre-se
+                        <Link to="/cadastro" className="text-[#150425] hover:underline">
+                        <button className="bg-[#150425] text-white border border-[#5D2C73] border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
+    <span className="bg-[#8D5ABF] shadow-[#8D5ABF] absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+            Cadatres-se
+            </button>
+                    
                         </Link>
                     </p>
                 </form>
