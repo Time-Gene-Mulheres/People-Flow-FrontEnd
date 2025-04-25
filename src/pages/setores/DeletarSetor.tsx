@@ -1,12 +1,13 @@
 import Setor from "../../models/Setor"
-
-function DeletarSetor() {
 import { useState, useContext, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { AuthContext } from "../../../contexts/AuthContext"
 
-import { buscar, deletar } from "../../../services/Service"
 import { RotatingLines } from "react-loader-spinner"
+import { AuthContext } from "../../contexts/AuthContext"
+import { buscar, deletar } from "../../services/Service"
+
+function DeletarSetor() {
+
 
 
     const navigate = useNavigate()
@@ -71,7 +72,7 @@ import { RotatingLines } from "react-loader-spinner"
     }
 
     function retornar() {
-        navigate("/setor")
+        navigate("/setores")
     }
     
     return (
@@ -84,7 +85,7 @@ import { RotatingLines } from "react-loader-spinner"
                     className='py-2 px-6 bg-indigo-600 text-white font-bold text-2xl'>
                     Setor
                 </header>
-                <p className='p-8 text-3xl bg-slate-200 h-full'>{setor.descricao}</p>
+                <p className='p-8 text-3xl bg-slate-200 h-full'>{setor.nome}</p>
                 <div className="flex">
                     <button 
                         className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2'

@@ -11,7 +11,7 @@ function CardSetor ({ setor }: CardSetoresProps) {
             <header className='py-2 px-6 bg-indigo-800 text-white font-bold text-2xl'>
                 Setor
             </header>
-            <p className='p-8 text-3xl bg-slate-200 h-full'>{setor.descricao}</p>
+            <p className='p-8 text-3xl bg-slate-200 h-full'>{setor.nome}</p>
             
             <div className="flex">
                 <Link to={`/editarsetor/${setor.id}`} 

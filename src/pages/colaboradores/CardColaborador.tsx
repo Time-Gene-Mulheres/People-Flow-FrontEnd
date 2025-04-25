@@ -5,7 +5,7 @@ import Colaborador from '../../models/Colaborador'
         colaborador: Colaborador
     }
 
-function CardColaborador({ colaborador }: CardColaboradoresProps) {
+function CardColaborador({ colaborador }: CardColaboradorProps) {
     return (
         <div className='border-slate-900 border 
             flex flex-col rounded overflow-hidden justify-between'>
@@ -29,7 +29,7 @@ function CardColaborador({ colaborador }: CardColaboradoresProps) {
                     <p>Data de Nascimento: {new Intl.DateTimeFormat(undefined, {
                         dateStyle: 'full',
                         timeStyle: 'medium',
-                    }).format(new Date(colaborador.data_de_nascimento))}</p>
+                    }).format(new Date(colaborador.dataDeNascimento))}</p>
                     
                 </div>
             </div>

@@ -4,7 +4,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import Usuario from '../../models/Usuario'
 import { cadastrarUsuario } from '../../services/Service'
 import { RotatingLines } from 'react-loader-spinner'
-import { ToastAlerta } from '../../utils/ToastAlerta'
+import { ToastAlerta } from '../../utils/ToastAlert'
 
 function Cadastro() {
 
@@ -89,7 +89,7 @@ return (
         <div className="flex flex-col w-full">
           <label htmlFor="usuario">Usuario</label>
           <input
-            type="text"
+            type="email"
             id="usuario"
             name="usuario"
             placeholder="Usuario"
