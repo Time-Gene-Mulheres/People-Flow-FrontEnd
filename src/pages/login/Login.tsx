@@ -39,46 +39,35 @@ function Login() {
                     h-screen place-items-center font-bold ">
                 <form className="flex justify-center items-center flex-col w-1/2 gap-4"
                     onSubmit={login}>
-                    <h2 className="text-slate-900 text-5xl ">Entrar</h2>
-                    <div className="flex flex-col w-full">
+                    <h2 className="text-[#150425] text-5xl ">Entrar</h2>
+                    <div className="flex flex-col w-full text-[#5D2C73]">
                         <label htmlFor="usuario">Usuário</label>
                         <input
                             type="text"
                             id="usuario"
                             name="usuario"
-                            placeholder="Usuario"
+                            placeholder="usuario@exemplo.com"
                             className="border-2 border-[#392359] rounded p-2"
                             value={usuarioLogin.usuario}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
-                    <div className="flex flex-col w-full">
+                    <div className="flex flex-col w-full text-[#5D2C73]">
                         <label htmlFor="senha">Senha</label>
                         <input
                             type="password"
                             id="senha"
                             name="senha"
-                            placeholder="Senha"
-                            className="border-2 border-slate-700 rounded p-2"
+                            placeholder="minimo de 8 caracteres"
+                            className="border-2 border-[#5D2C73] rounded p-2"
                             value={usuarioLogin.senha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                         />
                     </div>
-                    <button
-                        type='submit'
-                        className="rounded bg-[#392359] flex justify-center
-                                hover:bg-[#8D5ABF] text-white w-1/2 py-2">
-                                    
-                        {isLoading ? <RotatingLines
-                            strokeColor="white"
-                            strokeWidth="5"
-                            animationDuration="0.75"
-                            width="24"
-                            visible={true}
-                        /> :
-                            <span>Entrar</span>
-                        }
-                    </button>
+                    <button className="bg-[#150425] text-white border border-[#5D2C73] border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
+    <span className="bg-[#8D5ABF] shadow-[#8D5ABF] absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+            Entrar
+            </button>
 
                     <hr className="border-[#150425] w-full" />
 
