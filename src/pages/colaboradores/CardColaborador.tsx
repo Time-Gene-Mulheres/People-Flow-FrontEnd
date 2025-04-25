@@ -44,6 +44,7 @@ function CardColaborador({ colaborador }: CardColaboradorProps) {
                     }).format(new Date(colaborador.dataDeNascimento))}</p>
                     
                 </div>
+                <Link to={`/colaboradores/reajuste/${colaborador.id}`} >Atualizar Salario</Link>
             </div>
             <div className="flex">
             <Link to={`/editarcolaborador/${colaborador.id}`}
