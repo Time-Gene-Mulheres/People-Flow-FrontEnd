@@ -1,5 +1,4 @@
 import './App.css'
-import ListaSetor from './components/setores/ListaSetor'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
@@ -8,15 +7,15 @@ import './App.css'
 import { AuthProvider } from './contexts/AuthContext'
 import Login from './pages/login/Login'
 import Cadastro from './pages/cadastro/Cadastro'
-import Perfil from './pages/usuario/Perfil'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify'
-import ListaColaborador from './pages/colaboradores/ListaColaborador'
 import FormColaborador from './pages/colaboradores/FormColaborador'
 import DeletarColaborador from './pages/colaboradores/DeletarColaborados'
-import ListaSetor from './components/setores/ListaSetor';
 import FormSetor from './pages/setores/FormSetor'
 import DeletarSetor from './pages/setores/DeletarSetor'
+import ListaSetor from './pages/setores/ListaSetor';
+import ListaColaboradores from './pages/colaboradores/ListaColaborador';
+import Perfil from './pages/usuario/Perfi';
 
 
 function App() {
@@ -37,7 +36,7 @@ function App() {
                 <Route path="/cadastrarsetor" element={<FormSetor/>} />
                 <Route path="/editarsetor/:id" element={<FormSetor/>} />
                 <Route path="/deletarsetor/:id" element={<DeletarSetor />} />
-                <Route path="/postagens" element={<ListaPostagens />} />
+                <Route path="/colaboradores" element={<ListaColaboradores />} />
                 <Route path="/cadastrarcolaborador" element={<FormColaborador />} />
                 <Route path="/editarcolaborador:id" element={<FormColaborador />} />
                 <Route path="/deletarcolaborador:id" element={<DeletarColaborador />} />

@@ -1,5 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
+import Colaborador from "../../models/Colaborador";
+import { buscar } from "../../services/Service";
+import { AuthContext } from "../../contexts/AuthContext";
+import { ToastAlerta } from "../../utils/ToastAlert";
+import { DNA } from "react-loader-spinner";
+import CardColaborador from "./CardColaborador";
 
 function ListaColaboradores() {
 
@@ -54,7 +60,7 @@ function ListaColaboradores() {
                         grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
                     >
                         {colaboradores.map((colaborador) => (
-                            <CardColaboradores key={colaborador.id} postagem={colaborador} />
+                            <CardColaborador key={colaborador.id} colaborador={colaborador} />
                         ))}
                     </div>
                 </div>
