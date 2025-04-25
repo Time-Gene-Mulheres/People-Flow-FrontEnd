@@ -29,6 +29,7 @@ function FormColaborador() {
         headers: { Authorization: token },
       });
     } catch (error: any) {
+      console.log("Deu ruimm")
       if (error.toString().includes("403")) {
         handleLogout();
       }
