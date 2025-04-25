@@ -1,9 +1,10 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../../../contexts/AuthContext";
-import Setor from "../../../models/Setor";
-import { atualizar, buscar, cadastrar } from "../../../services/Service";
+import { AuthContext } from "../../contexts/AuthContext";
+import Setor from "../../models/Setor";
+import { atualizar, buscar, cadastrar } from "../../services/Service";
+
 
 function FormSetor() {
 
@@ -50,10 +51,10 @@ function FormSetor() {
     }
 
     function retornar() {
-        navigate("/setor")
+        navigate("/setores")
     }
 
-    async function gerarNovoTema(e: ChangeEvent<HTMLFormElement>) {
+    async function gerarNovoSetor(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         setIsLoading(true)
 
@@ -97,7 +98,19 @@ function FormSetor() {
                 {id === undefined ? 'Cadastrar Setor' : 'Editar Setor'}
             </h1>
 
-            <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoTema}>
+            <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoSetor}>
+                <div className="flex flex-col gap-2">
+                    <label htmlFor="setorNome">Nome do Setor</label>
+                    <input
+                        type="text"
+                        placeholder="Insira como o setor se chamará..."
+                        name='setorNome'
+                        className="border-2 border-slate-700 rounded p-2"
+                        value={setor.nome}
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
+                    />
+                </div>
+
                 <div className="flex flex-col gap-2">
                     <label htmlFor="descricao">Descrição do Setor</label>
                     <input

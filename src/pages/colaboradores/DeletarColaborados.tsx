@@ -1,5 +1,10 @@
 import { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { ToastAlerta } from "../../utils/ToastAlert"
+import { buscar, deletar } from "../../services/Service"
+import { AuthContext } from "../../contexts/AuthContext"
+import Colaborador from "../../models/Colaborador"
+import { RotatingLines } from "react-loader-spinner"
 
 
 function DeletarColaborador() {

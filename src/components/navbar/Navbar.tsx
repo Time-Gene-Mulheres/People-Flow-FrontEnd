@@ -1,34 +1,54 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../../contexts/AuthContext";
+import { ReactNode, useContext } from "react";
 
 function Navbar() {
-    return (
-        <>
+    
+    const navigate = useNavigate();
+
+    const { usuario, handleLogout } = useContext(AuthContext)
+
+    function logout() {
+
+        handleLogout()
+        ToastAlerta('O Usuário foi desconectado com sucesso!', 'info')
+        navigate('/')
+    }
+    
+    let component: ReactNode
+
+    if (usuario.token !== "") {
+
+        component = (
+
             <div className='w-full flex justify-center py-4
-            			   bg-indigo-900 text-white'>
+            			    bg-indigo-900 text-white'>
             
                 <div className="container flex justify-between text-lg">
-                <Link to='/home' className="text-2xl font-bold">People Flow</Link>
+                    <Link to='/home' className="text-2xl font-bold">People Flow</Link>
+
                     <div className='flex gap-4'>
-                    <Link to="/setor" className="text-indigo-800 hover:underline">
-                    Setor
-                    </Link>
-                    <Link to="/usuario" className="text-indigo-800 hover:underline">
-                    Usuário
-                    </Link>
-                    <Link to="/cadastro" className="text-indigo-800 hover:underline">
-                     Cadastro
-                    </Link>
-                    <Link to="/login" className="text-indigo-800 hover:underline">
-                    Login
-                    </Link>
-                    <Link to="/sair" className="text-indigo-800 hover:underline">
-                    Sair
-                    </Link>
+                    <Link to="/setor" className="hover:underline">Setor</Link>
+                    <Link to='/cadastrarsetor' className='hover:underline'>Cadastrar Setor</Link>
+                    <Link to="/usuario" className="hover:underline">Usuário</Link>
+                    <Link to='/perfil' className='hover:underline'>Perfil</Link>
+                    <Link to="/cadastro" className="hover:underline">Cadastro</Link>
+                    <Link to="/login" className="hover:underline">Login</Link>
+                    <Link to='' onClick={logout} className='hover:underline'>Sair</Link>            
                     </div>
                 </div>
             </div>
+        )
+    }
+    return (
+        <>
+            { component }
         </>
     )
 }
 
 export default Navbar
+
+function ToastAlerta(arg0: string, arg1: string) {
+    throw new Error("Function not implemented.");
+}
