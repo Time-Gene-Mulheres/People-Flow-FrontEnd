@@ -27,6 +27,7 @@ function Perfil() {
                 <img
                     className="rounded-full w-56 mx-auto mt-[-8rem] border-8 border-white relative z-10"
                     src={usuario.foto}
+                    onError={(e) => { e.currentTarget.src = "/userperfil.png" }} 
                     alt={`Foto de perfil de ${usuario.nome}`}
                 />
 

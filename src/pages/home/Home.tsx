@@ -78,17 +78,6 @@ function Home() {
     const folhaSalarial = colaboradores.reduce((total, colaborador) => total + colaborador.salario, 0);
     const mediaSalarial = totalFuncionarios > 0 ? folhaSalarial / totalFuncionarios : 0;
 
-    const formatarMoeda = (valor: number) => {
-        return valor.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        });
-    };
-
-    const formatarData = (dataString: string) => {
-        const data = new Date(dataString);
-        return data.toLocaleDateString('pt-BR');
-    };
 
     const proximosAniversarios = colaboradores
     .filter(colaborador => {
