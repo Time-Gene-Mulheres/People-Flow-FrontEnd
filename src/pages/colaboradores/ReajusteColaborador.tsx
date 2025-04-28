@@ -74,7 +74,7 @@ if (!colaborador || colaborador.salario === undefined) {
             <p><strong>Salário Atual:</strong> R$ {colaborador.salario.toFixed(2)}</p>
             <button
                 onClick={buscarReajusteColaborador}
-                className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                className="mt-4 text-white px-4 py-2 rounded bg-[#392359] hover:bg-[#5D2C73] transition">
                 Aplicar Reajuste de 10%
             </button>
 
