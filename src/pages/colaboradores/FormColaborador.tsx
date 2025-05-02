@@ -136,7 +136,7 @@ function FormColaborador() {
   }
 
   return (
-    <div className="container flex flex-col items-center justify-center mx-auto">
+    <div className="container flex flex-col items-center justify-center mx-auto py-10">
       <h1 className="text-4xl text-center my-8">
         {id === undefined
           ? "Cadastrar colaborador"

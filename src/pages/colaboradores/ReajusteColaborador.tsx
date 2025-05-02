@@ -68,7 +68,7 @@ if (!colaborador || colaborador.salario === undefined) {
 }  
 
     return (
-        <div className="p-4 bg-white rounded-xl shadow-md max-w-md mx-auto mt-8">
+        <div className="p-4 bg-white rounded-xl shadow-md max-w-md mx-auto mt-8 py-10">
             <h1 className="text-xl font-bold mb-4">Reajuste Salarial</h1>
             <p><strong>Nome:</strong> {colaborador.nome}</p>
             <p><strong>Salário Atual:</strong> R$ {colaborador.salario.toFixed(2)}</p>

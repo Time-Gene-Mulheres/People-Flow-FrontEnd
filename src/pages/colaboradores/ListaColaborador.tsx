@@ -128,7 +128,7 @@ function ListaColaboradores() {
                     wrapperClass="dna-wrapper mx-auto"
                 />
             )}
-            <div className="flex justify-center w-full my-4">
+            <div className="flex justify-center w-full py-10">
                 <div className="container flex flex-col mx-2">
                     <div className="my-4">
                         <Link

@@ -122,7 +122,7 @@ function ListaSetor() {
           wrapperClass="dna-wrapper mx-auto"
         />
       )}
-      <div className="flex justify-center w-full my-4">
+      <div className="flex justify-center w-full my-4 py-10">
         <div className="container flex flex-col">
           <div>
             <Link to="/cadastrarsetor">

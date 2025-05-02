@@ -75,7 +75,7 @@ function DeletarColaborador() {
     }
     
     return (
-        <div className='container w-1/3 mx-auto'>
+        <div className='container w-1/3 mx-auto py-10'>
             <h1 className='text-4xl text-center my-4'>Deletar Colaborador</h1>
 
             <p className='text-center font-semibold mb-4'>
