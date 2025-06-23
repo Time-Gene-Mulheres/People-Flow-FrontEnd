@@ -1,10 +1,9 @@
 import Setor from "../../models/Setor"
-import { useState, useContext, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-
 import { RotatingLines } from "react-loader-spinner"
-import { AuthContext } from "../../contexts/AuthContext"
 import { buscar, deletar } from "../../services/Service"
+import { useAuth } from '../../hooks/useAuth'
 
 function DeletarSetor() {
 
@@ -15,7 +14,7 @@ function DeletarSetor() {
     const [setor, setSetor] = useState<Setor>({} as Setor)
     const [isLoading, setIsLoading] = useState<boolean>(false)
     
-    const { usuario, handleLogout } = useContext(AuthContext)
+    const { usuario, handleLogout } = useAuth()
     const token = usuario.token
 
     const { id } = useParams<{ id: string }>()

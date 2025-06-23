@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { useAuth } from '../../hooks/useAuth'
 import { ToastAlerta } from "../../utils/ToastAlert"
 import { buscar, deletar } from "../../services/Service"
-import { AuthContext } from "../../contexts/AuthContext"
 import Colaborador from "../../models/Colaborador"
 import { RotatingLines } from "react-loader-spinner"
 
@@ -16,7 +16,7 @@ function DeletarColaborador() {
 
     const { id } = useParams<{ id: string }>()
 
-    const { usuario, handleLogout } = useContext(AuthContext)
+    const { usuario, handleLogout } = useAuth()
     const token = usuario.token
 
     async function buscarPorId(id: string) {

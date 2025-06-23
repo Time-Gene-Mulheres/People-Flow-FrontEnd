@@ -1,14 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import { AuthContext } from "../../contexts/AuthContext";
-import { ChangeEvent, useContext, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
+import { useAuth } from '../../hooks/useAuth'
 import UsuarioLogin from "../../models/UsuarioLogin";
 import { RotatingLines } from "react-loader-spinner";
 
 function Login() {
   const navigate = useNavigate();
 
-  const { usuario, handleLogin, isLoading } = useContext(AuthContext);
+  const { usuario, handleLogin, isLoading } = useAuth();
 
   const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
     {} as UsuarioLogin

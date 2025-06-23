@@ -1,13 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
-import { ReactNode, useContext } from "react";
+import { useAuth } from "../../hooks/useAuth";
+import { ReactNode } from "react";
 import { ToastAlerta } from "../../utils/ToastAlert";
 import { SignOut, SuitcaseSimple, User, Users } from "phosphor-react";
 
 function Navbar() {
   const navigate = useNavigate();
 
-  const { usuario, handleLogout } = useContext(AuthContext);
+  const { usuario, handleLogout } = useAuth();
 
   function logout() {
     handleLogout();

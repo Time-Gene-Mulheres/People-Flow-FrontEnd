@@ -1,7 +1,7 @@
-import { ChangeEvent, useContext, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
+import { useAuth } from '../../hooks/useAuth'
 import Setor from "../../models/Setor";
 import { atualizar, buscar, cadastrar } from "../../services/Service";
 
@@ -13,7 +13,7 @@ function FormSetor() {
     const [setor, setSetor] = useState<Setor>({} as Setor)
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
-    const { usuario, handleLogout } = useContext(AuthContext)
+    const { usuario, handleLogout } = useAuth();
     const token = usuario.token
 
     const { id } = useParams<{ id: string }>();

@@ -1,6 +1,6 @@
-import { Cake, Suitcase, SuitcaseSimple, TrendUp, Users } from '@phosphor-icons/react'
-import { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../../contexts/AuthContext';
+import { Cake, SuitcaseSimple } from '@phosphor-icons/react'
+import { useEffect, useState } from 'react'
+import { useAuth } from '../../hooks/useAuth'
 import { buscar } from '../../services/Service';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastAlerta } from '../../utils/ToastAlert';
@@ -17,7 +17,7 @@ function Home() {
     const [loadingColaboradores, setLoadingColaboradores] = useState<boolean>(false)
     const [loadingSetores, setLoadingSetores] = useState<boolean>(false)
 
-    const { usuario, handleLogout } = useContext(AuthContext);
+    const { usuario, handleLogout } = useAuth();
     const token = usuario.token;
 
     useEffect(() => {

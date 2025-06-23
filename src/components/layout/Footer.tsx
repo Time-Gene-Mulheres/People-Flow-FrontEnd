@@ -1,11 +1,11 @@
 import {GithubLogo,} from '@phosphor-icons/react'
-import { AuthContext } from '../../contexts/AuthContext'
-import { ReactNode, useContext } from 'react'
+import { useAuth } from '../../hooks/useAuth'
+import { ReactNode } from 'react'
 
 function Footer() {
 
     let data = new Date().getFullYear()
-    const { usuario } = useContext(AuthContext)
+    const { usuario } = useAuth()
 
     let component: ReactNode
 

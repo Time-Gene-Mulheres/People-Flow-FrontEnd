@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth'
@@ -51,6 +52,10 @@ useEffect(() => {
         navigate("/");
     }
 }, [token]);
+
+// useEffect(() => {
+//     buscarReajusteColaborador();
+// }, []);
 
 useEffect(() => {
     if (id !== undefined) {
