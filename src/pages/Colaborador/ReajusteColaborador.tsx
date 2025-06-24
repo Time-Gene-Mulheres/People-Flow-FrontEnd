@@ -1,85 +1,106 @@
+// src/pages/colaboradores/ReajusteColaborador.tsx (VERSÃO ATUALIZADA)
 
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth'
-import { buscar } from '../../services/Service';
+import { AuthContext } from '../../contexts/AuthContext';
 import Colaborador from '../../models/Colaborador';
+import { buscar, atualizar } from '../../services/Service';
 import { ToastAlerta } from '../../utils/ToastAlert';
 
 function ReajusteColaborador() {
+  const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+  const { usuario, handleLogout } = useContext(AuthContext);
+  const token = usuario.token;
 
-    const navigate = useNavigate();
+  const [colaborador, setColaborador] = useState<Colaborador>({} as Colaborador);
+  
+  // NOVO ESTADO para guardar o valor da porcentagem
+  const [porcentagem, setPorcentagem] = useState<number>(0);
 
-const [colaborador, setColaborador] = useState<Colaborador>(
-    {} as Colaborador
-);
-
-const [isLoading, setIsLoading] = useState<boolean>(false);
-const { usuario, handleLogout } = useAuth();
-const token = usuario.token;
-const { id } = useParams<{ id: string }>();
-
-async function buscarPorId(id: string) {
+  async function buscarColaboradorPorId(id: string) {
     try {
-        await buscar(`/colaboradores/${id}`, setColaborador, {
+      await buscar(`/colaboradores/${id}`, setColaborador, {
         headers: { Authorization: token },
-        });
+      });
     } catch (error: any) {
-        if (error.toString().includes("403")) {
+      if (error.toString().includes('401')) {
         handleLogout();
-        }
+      }
     }
-}
+  }
 
-async function buscarReajusteColaborador() {
-    try {
-        await buscar(`/colaboradores/reajuste/${id}`, setColaborador, {
-        headers: {
-            Authorization: token,
-        },
-        });
-        navigate("/colaboradores")
-    } catch (error: any) {
-        if (error.toString().includes("403")) {
-        handleLogout();
-        }
+  useEffect(() => {
+    if (token === '') {
+      ToastAlerta('Você precisa estar logado', 'info');
+      navigate('/');
     }
-}
+  }, [token]);
 
-useEffect(() => {
-    if (token === "") {
-        ToastAlerta("Você precisa estar logado!", "erro");
-        navigate("/");
-    }
-}, [token]);
-
-// useEffect(() => {
-//     buscarReajusteColaborador();
-// }, []);
-
-useEffect(() => {
+  useEffect(() => {
     if (id !== undefined) {
-        buscarPorId(id);
+      buscarColaboradorPorId(id);
     }
-}, [id]);
+  }, [id]);
 
-if (!colaborador || colaborador.salario === undefined) {
-    return <p>Carregando dados do colaborador...</p>;
-}  
+  async function reajustar(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault();
 
-    return (
-        <div className="p-4 bg-white rounded-xl shadow-md max-w-md mx-auto mt-8 py-10">
-            <h1 className="text-xl font-bold mb-4">Reajuste Salarial</h1>
-            <p><strong>Nome:</strong> {colaborador.nome}</p>
-            <p><strong>Salário Atual:</strong> R$ {colaborador.salario.toFixed(2)}</p>
-            <button
-                onClick={buscarReajusteColaborador}
-                className="mt-4 text-white px-4 py-2 rounded bg-[#392359] hover:bg-[#5D2C73] transition">
-                Aplicar Reajuste de 10%
-            </button>
+    try {
+      // A função PUT agora envia um corpo (body) com a porcentagem
+      await atualizar(`/colaboradores/reajuste/${id}`, { porcentagem }, setColaborador, {
+        headers: { Authorization: token },
+      });
+      ToastAlerta('Salário reajustado com sucesso!', 'sucesso');
+    } catch (error: any) {
+      if (error.toString().includes('401')) {
+        handleLogout();
+      } else {
+        ToastAlerta('Erro ao reajustar o salário.', 'erro');
+      }
+    }
 
+    retornar();
+  }
+
+  function retornar() {
+    navigate('/colaboradores');
+  }
+
+  return (
+    <div className='container flex flex-col mx-auto items-center'>
+      <h1 className='text-4xl text-center my-4'>Reajustar Salário</h1>
+      <p className='text-center font-semibold mb-4'>
+        Você está reajustando o salário do colaborador: {colaborador.nome}
+      </p>
+
+      <form className="flex flex-col justify-center w-1/2 gap-4" onSubmit={reajustar}>
+        <div className="flex flex-col gap-2">
+          
+          {/* NOVO CAMPO DE INPUT PARA A PORCENTAGEM */}
+          <label htmlFor="porcentagem">Porcentagem de Reajuste (%)</label>
+          <input
+            type="number"
+            id="porcentagem"
+            name="porcentagem"
+            placeholder="Ex: 15"
+            className="border-2 border-slate-700 rounded p-2"
+            value={porcentagem}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setPorcentagem(parseFloat(e.target.value))}
+            required
+          />
         </div>
-    );
+        <div className="flex justify-around w-full gap-8">
+          <button className='rounded text-white bg-red-400 hover:bg-red-700 w-1/2 py-2' onClick={retornar}>
+            Não
+          </button>
+          <button className='rounded text-white bg-indigo-400 hover:bg-indigo-900 w-1/2' type="submit">
+            Sim
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default ReajusteColaborador;
