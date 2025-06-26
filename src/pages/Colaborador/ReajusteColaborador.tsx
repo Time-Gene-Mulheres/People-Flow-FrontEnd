@@ -47,7 +47,6 @@ function ReajusteColaborador() {
     e.preventDefault();
 
     try {
-      // A função PUT agora envia um corpo (body) com a porcentagem
       await atualizar(`/colaboradores/reajuste/${id}`, { porcentagem }, setColaborador, {
         headers: { Authorization: token },
       });
