@@ -159,15 +159,6 @@ function Home() {
                                 }
                             </p>
                         </div>
-                        <div className='border border-[#69468d] border-3 rounded-lg p-5 flex flex-col items-center justify-center gap-2 bg-[#7B51A6] hover:shadow-xl/30 hover:shadow-purple-400 hover:rounded-lg'>
-                            <h2 className='font-medium'>Colaboradores Sem Setor</h2>
-                            <p className='text-4xl font-semibold'>
-                                {isLoadingGeral ?
-                                    <RotatingLines strokeColor="white" strokeWidth="5" animationDuration="0.75" width="24" visible={true} /> :
-                                    <span>{colaboradoresSemSetor.length}</span>
-                                }
-                            </p>
-                        </div>
                     </div>
 
                     <div className='rounded-lg flex flex-col gap-5'>
