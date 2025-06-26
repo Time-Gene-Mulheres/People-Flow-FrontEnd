@@ -66,7 +66,7 @@
 
 
 import { Link } from 'react-router-dom';
-import Colaborador from '../../models/Colaborador';
+import Colaborador from '../../../models/Colaborador';
 import { User } from 'phosphor-react';
 import img from "/user.svg";
 

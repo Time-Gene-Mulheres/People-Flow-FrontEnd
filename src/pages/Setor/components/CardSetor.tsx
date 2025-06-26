@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Setor from '../../models/Setor'
+import Setor from '../../../models/Setor'
 import { PencilLine, Trash } from 'phosphor-react';
 
 // interface CardSetoresProps{
