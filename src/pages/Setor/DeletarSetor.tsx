@@ -1,9 +1,10 @@
 import Setor from "../../models/Setor"
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { RotatingLines } from "react-loader-spinner"
+import { DNA, RotatingLines } from "react-loader-spinner"
 import { buscar, deletar } from "../../services/Service"
 import { useAuth } from '../../hooks/useAuth'
+import { ToastAlerta } from "../../utils/ToastAlert"
 
 function DeletarSetor() {
 
@@ -35,7 +36,7 @@ function DeletarSetor() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado')
+            ToastAlerta('Você precisa estar logado!', 'info')
             navigate('/')
         }
     }, [token])
@@ -56,13 +57,13 @@ function DeletarSetor() {
                 }
             })
 
-            alert('Setor apagado com sucesso')
+            ToastAlerta('Setor apagado com sucesso', 'sucesso')
 
         } catch (error: any) {
             if (error.toString().includes('403')) {
                 handleLogout()
             }else {
-                alert('Erro ao deletar o setor.')
+                ToastAlerta('Erro ao deletar o setor.', 'erro')
             }
         }
 
@@ -75,38 +76,36 @@ function DeletarSetor() {
     }
     
     return (
-        <div className='container w-1/3 mx-auto py-10'>
-            <h1 className='text-4xl text-center my-4'>Deletar Setor</h1>
-            <p className='text-center font-semibold mb-4'>
-                Você tem certeza de que deseja apagar o setor a seguir?</p>
-            <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-                <header 
-                    className='py-2 px-6  bg-[#392359] text-white font-bold text-2xl'>
-                    Setor
-                </header>
-                <p className='p-8 text-3xl bg-[#e6dbf6] h-full'>{setor.nome}</p>
-                <div className="flex">
-                    <button 
-                        className='text-slate-100 bg-[#5D2C73] hover:bg-[#392359] w-full py-2'
-                        onClick={retornar}>
-                        Não
-                    </button>
-                    <button 
-                        className='w-full text-slate-100 bg-red-400 hover:bg-red-600 flex items-center justify-center'
-                                   onClick={deletarSetor}>
-                        {isLoading ?
-                            <RotatingLines
-                                strokeColor="white"
-                                strokeWidth="5"
-                                animationDuration="0.75"
-                                width="24"
-                                visible={true}
-                            /> :
-                            <span>Sim</span>
-                        }
-                    </button>
+        <div className="flex justify-center items-center h-screen bg-gray-100">
+            {isLoading ? (
+                <div className="flex justify-center items-center">
+                    <DNA visible={true} height="200" width="200" ariaLabel="dna-loading" />
                 </div>
-            </div>
+            ) : (
+                <div className="container mx-auto p-8 max-w-2xl bg-[#F1E6FB] rounded-lg shadow-2xl border-4 border-[#392359] text-center">
+                    <h1 className="text-4xl font-bold text-[#392359] mb-4">Deletar Setor</h1>
+                    <p className="text-xl font-medium text-[#5D2C73] mb-8">
+                        Você tem certeza que deseja deletar o setor: <span className="font-bold text-[#392359]">{setor.nome}</span>?
+                    </p>
+
+                    <div className="flex justify-center gap-6">
+                        <button
+                            onClick={retornar}
+                            className="bg-white text-[#5D2C73] border border-[#5D2C73] border-b-4 font-bold overflow-hidden relative px-6 py-3 rounded-md hover:brightness-90 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group"
+                        >
+                            <span className="bg-white shadow-white absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+                            Não
+                        </button>
+                        <button
+                            onClick={deletarSetor}
+                            className="bg-[#D32F2F] text-white border border-[#B71C1C] border-b-4 font-bold overflow-hidden relative px-6 py-3 rounded-md hover:brightness-110 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group"
+                        >
+                            <span className="bg-white shadow-white absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+                            Sim
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

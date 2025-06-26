@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuth } from '../../hooks/useAuth'
+import { ToastAlerta } from "../../utils/ToastAlert"
 
 function Perfil() {
     const navigate = useNavigate()
@@ -9,7 +10,7 @@ function Perfil() {
 
     useEffect(() => {
         if (usuario.token === "") {
-            alert("Você precisa estar logado")
+            ToastAlerta("Você precisa estar logado!", "info")
             navigate("/")
         }
     }, [usuario.token])
